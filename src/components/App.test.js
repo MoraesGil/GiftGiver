@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
+
 import App from './App';
 
 describe('App test', () => {
@@ -12,5 +13,11 @@ describe('App test', () => {
 
   it('initializes the `state` with an empty list of gifts', () => {
     expect(app.state().gifts).toEqual([]);
+  });
+
+  it('adds a new gift to `state` when clicking the `add gift button`', () => {
+    app.find('.btn-add').simulate('click');
+    
+    expect(app.state().gifts).toEqual([{id:1}]);
   });
 });
